@@ -16,10 +16,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-<!-- Shared stylesheet order: tokens → base → components → animations → effects.
-     case-studies.css is page-scoped and loads LAST so it only adds new
-     classes (.case-grid, .case-card, .section--textured) without touching
-     the shared system. -->
+<!-- ==========================================================================
+     Stylesheet load order: tokens → base → components → animations → effects
+     are shared across every page. This page needs no page-specific stylesheet
+     — the cinematic page-hero, split sections, and CTA banner are all already
+     defined in components.css for reuse.
+     ========================================================================== -->
 <link rel="stylesheet" href="css/tokens.css" />
 <link rel="stylesheet" href="css/base.css" />
 <link rel="stylesheet" href="css/components.css" />
@@ -90,63 +92,48 @@
 <div id="smooth-content">
 <main id="main">
 
-<!-- ============== HERO (reused Home hero — text + video source only) ============== -->
-<section class="hero" aria-label="Case Studies introduction">
-  <!-- Cinematic full-bleed background video: autoplay, muted, loop, playsinline.
-       Reuses .page-hero-media / .page-hero-video so js/main.js fades it in,
-       autoplays it, and removes it under prefers-reduced-motion. -->
-  <div class="page-hero-media hero-media" aria-hidden="true">
+<!-- ============== PAGE HERO ============== -->
+<header class="page-hero page-hero--left" aria-label="About aCXend introduction">
+  <!-- Cinematic background video: autoplay, muted, loop, playsinline.
+       Fades in once decoded (see backgroundVideoEngine() in js/main.js) so
+       there's no jarring pop-in; poster shows immediately while it loads.
+       Footage: videos/bg1.mp4. -->
+  <div class="page-hero-media" aria-hidden="true">
     <video
       class="page-hero-video"
       autoplay muted loop playsinline
-      preload="auto">
-      <source src="videos/Case-Study-Video.mp4" type="video/mp4" />
+      preload="auto"
+      poster="images/about-hero-poster.jpg">
+      <source src="videos/about-hero.mp4" type="video/mp4" />
     </video>
   </div>
-  <div class="hero-bg" aria-hidden="true">
-    <div class="hero-grid-lines"></div>
-    <div class="hero-glow hero-glow--1"></div>
-    <div class="hero-glow hero-glow--2"></div>
-  </div>
+  <div class="page-hero-overlay" aria-hidden="true"></div>
 
-  <div class="container hero-inner">
-    <div class="hero-copy">
-      <p class="eyebrow eyebrow--light reveal split-text">Case Studies</p>
-      <h1 class="hero-title reveal" data-stagger>
-        <span class="line"><span class="line-inner"><em>Real Work.</em></span></span>
-        <span class="line"><span class="line-inner">Real <span class="hero-accent">Impact.</span></span></span>
-      </h1>
-      <p class="hero-desc reveal split-text">Explore how we support teams with customer operations, moderation, and scalable execution.</p>
-      <div class="hero-ctas reveal">
-        <a href="contact.html" class="btn btn-primary btn-lg">Start a Conversation
+  <div class="container page-hero-inner">
+    <div class="page-hero-content">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span aria-current="page">About</span>
+      </nav>
+      <h1 class="reveal split-text">Partnerships built to go beyond the contract</h1>
+      <p class="page-hero-desc reveal split-text">We stay engaged, work through challenges alongside you, and focus on improving how your operations actually run — not just maintaining them.</p>
+      <div class="page-hero-cta reveal">
+        <a href="/contact" class="btn btn-primary btn-lg">Start a Conversation
           <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="services.html" class="btn btn-ghost btn-lg">Explore Services</a>
       </div>
     </div>
   </div>
+</header>
 
-  <!-- Proof strip -->
-  <div class="hero-stats">
-    <div class="container hero-stats-grid">
-      <div class="stat reveal"><span class="stat-num" data-count="12" data-suffix="+">0+</span><span class="stat-lbl">Years operating cross-functional teams</span></div>
-      <div class="stat reveal"><span class="stat-num" data-count="100" data-suffix="%">0%</span><span class="stat-lbl">Partner focused</span></div>
-      <div class="stat reveal"><span class="stat-num">24/7</span><span class="stat-lbl">Coverage across regions</span></div>
-    </div>
-  </div>
-
-  <div class="hero-scroll" aria-hidden="true"><span>Scroll</span><span class="hero-scroll-line"></span></div>
-
-  <!-- Curtain reveal: dim scrim scrubbed by GSAP as the next section covers the hero -->
-  <div class="hero-dim" aria-hidden="true"></div>
-</section>
-
-<!-- ============== 1 · INTRO (About-preview style) ============== -->
-<section class="section section--textured" id="case-studies-intro">
+<!-- ============== 1 · ABOUT PREVIEW ============== -->
+<section class="section section--textured" id="about-preview">
   <div class="container narrow">
-    <span class="eyebrow reveal split-text">Case Studies</span>
-    <h2 class="reveal split-text">Operational excellence <span class="accent">in action.</span></h2>
-    <p class="reveal">We partner with teams to manage and improve the systems behind their customer experience. These case studies highlight how we approach complex challenges, implement structured solutions, and deliver measurable outcomes across support, moderation, and digital operations.</p>
+    <span class="eyebrow reveal split-text">We are aCXend</span>
+    <h2 class="reveal split-text">Building partnerships <span class="accent">that last.</span></h2>
+    <p class="reveal">We partner with teams that need more than just additional headcount. Whether you're scaling support, managing complex operations, or building from the ground up, we step in as an extension of your team—bringing structure, accountability, and hands-on execution where it matters most.</p>
+    <p class="reveal">Our approach is simple: understand the work, align on outcomes, and build the right support around it. From customer service and content moderation to web and operational support, we focus on doing the work well.</p>
   </div>
 </section>
 
