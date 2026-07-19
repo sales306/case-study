@@ -1,0 +1,246 @@
+/* ==========================================================================
+   aCXend — Home page
+   Styles unique to index.html: the hero (imagery, focus card, proof strip)
+   and the centered About-preview block. Depends on tokens.css, base.css,
+   components.css, animations.css, effects.css. Load ONLY on index.html.
+
+   Note: the reverse-curtain-reveal system itself now lives in effects.css
+   (generalized to run on every page, not just this one) — see that file.
+   ========================================================================== */
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 70%, #0C2558 100%);
+  color: var(--white);
+  overflow: clip;
+}
+.hero-bg { position: absolute; inset: 0; pointer-events: none; }
+.hero-grid-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(111,168,242,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111,168,242,.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 30%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 30%, #000 40%, transparent 100%);
+}
+.hero-glow { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .5; }
+.hero-glow--1 { width: 560px; height: 560px; top: -180px; right: -120px; background: radial-gradient(circle, rgba(14,79,196,.55), transparent 65%); }
+.hero-glow--2 { width: 460px; height: 460px; bottom: -160px; left: -140px; background: radial-gradient(circle, rgba(47,123,224,.35), transparent 65%); }
+
+.hero-inner {
+  position: relative;
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  align-items: center; gap: clamp(40px, 6vw, 88px);
+  padding-block: clamp(88px, 11vw, 150px) clamp(72px, 9vw, 120px);
+}
+.hero-title { color: var(--white); margin-block: 4px 22px; }
+.hero-title .line { display: block; }
+.hero-title em { font-style: normal; color: var(--white); }
+.hero-accent {
+  background: linear-gradient(120deg, var(--sky), var(--cta-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-desc { color: rgba(226,236,252,.82); font-size: clamp(1.02rem, 1.3vw, 1.2rem); max-width: 54ch; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+
+/* Signature — professional imagery + service focus card
+   (replaces the former live-metrics/progress-bar panel: this is a young,
+   growing company, so the hero leans on real imagery and plain service
+   labels rather than fabricated stats.) */
+.hero-panel { position: relative; }
+.hero-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  overflow: clip;
+  box-shadow: 0 30px 60px -25px rgba(0,0,0,.55);
+  background: var(--navy-deep); /* shows while the image decodes */
+}
+.hero-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 30%;
+  display: block;
+}
+.hero-photo::after {
+  /* Soft brand-tinted wash so the photo sits naturally in the navy hero */
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(200deg, rgba(10,31,76,.35), rgba(10,31,76,0) 45%),
+              linear-gradient(0deg, rgba(6,20,52,.55), rgba(6,20,52,0) 38%);
+  pointer-events: none;
+}
+
+.hero-focus-card {
+  position: absolute; left: -18px; bottom: -28px; z-index: 2;
+  width: min(240px, 62%);
+  padding: 20px 22px;
+  display: grid; gap: 14px;
+  background: rgba(10,31,76,.55);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--radius);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 30px 60px -25px rgba(0,0,0,.55);
+  animation: focus-card-float 5.5s ease-in-out infinite;
+}
+.hero-focus-head {
+  font-family: 'Manrope', sans-serif; font-size: .72rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--sky);
+}
+.focus-list { display: grid; gap: 11px; }
+.focus-item {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Manrope', sans-serif; font-size: .84rem; font-weight: 600;
+  color: rgba(226,236,252,.92); line-height: 1.25;
+}
+.focus-ic {
+  flex: none; display: grid; place-items: center;
+  width: 28px; height: 28px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--cta-1), var(--cta-2));
+  color: var(--white);
+}
+.focus-ic svg { width: 14px; height: 14px; }
+
+/* Proof strip */
+.hero-stats { position: relative; border-top: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03); }
+.hero-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-block: 30px; }
+.stat { display: grid; gap: 4px; }
+.stat-num { font-family: 'Manrope', sans-serif; font-size: clamp(1.7rem, 2.6vw, 2.3rem); font-weight: 800; color: var(--white); line-height: 1; font-variant-numeric: tabular-nums; }
+.stat-lbl { font-size: .84rem; color: rgba(226,236,252,.65); }
+
+.hero-scroll {
+  position: absolute; right: 34px; bottom: 120px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: rgba(226,236,252,.55); font-size: .7rem; letter-spacing: .22em; text-transform: uppercase;
+  writing-mode: vertical-rl;
+}
+.hero-scroll-line { width: 1px; height: 52px; background: linear-gradient(180deg, rgba(255,255,255,.5), transparent); overflow: hidden; position: relative; }
+.hero-scroll-line::after {
+  content: ""; position: absolute; inset: 0;
+  background: var(--sky); transform: translateY(-100%);
+  animation: scroll-hint 2.4s var(--ease) infinite;
+}
+@keyframes scroll-hint { 0% { transform: translateY(-100%);} 60% { transform: translateY(100%);} 100% { transform: translateY(100%);} }
+
+
+/* ---------- Hero title line-mask reveal ---------- */
+.hero-title .line { overflow: hidden; }
+.hero-title .line-inner {
+  display: inline-block;
+  transform: translateY(112%);
+  transition: transform 1s var(--ease-lux);
+}
+.hero-title .line:nth-child(1) .line-inner { transition-delay: .06s; }
+.hero-title .line:nth-child(2) .line-inner { transition-delay: .17s; }
+.hero-title.in .line-inner { transform: translateY(0); }
+
+
+/* ---------- Mouse-tilt hero panel ---------- */
+.hero-panel { transform-style: preserve-3d; will-change: transform; transition: transform .15s var(--ease); }
+.hero-panel .hero-photo, .hero-panel .hero-focus-card { transition: transform .15s var(--ease); }
+
+/* ---------- About Us preview — centered layout ---------- */
+#about-preview .container.narrow {
+  text-align: center;
+}
+#about-preview .eyebrow {
+  justify-content: center;
+  margin-bottom: 22px;
+}
+#about-preview h2 {
+  margin-inline: auto;
+  margin-bottom: 28px;
+}
+#about-preview p {
+  margin-inline: auto;
+}
+#about-preview p + p {
+  margin-top: 16px;
+}
+
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991px) {
+  .hero-inner { grid-template-columns: 1fr; padding-block: 72px 64px; }
+  .hero-panel { max-width: 480px; }
+  .hero-scroll { display: none; }
+}
+
+@media (max-width: 640px) {
+  .hero-stats-grid { grid-template-columns: 1fr; gap: 18px; }
+  .hero-focus-card { left: 0; bottom: -18px; width: min(210px, 58%); padding: 16px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title .line-inner { transform: none !important; transition: none !important; }
+  .hero-focus-card { animation: none; }
+  .hero-panel, .hero-panel .hero-photo, .hero-panel .hero-focus-card { transition: none !important; }
+}
+
+/* ==========================================================================
+   Home hero — full-bleed background video
+   The muted/looped video sits behind the hero content; the navy gradient on
+   .hero stays as the fallback fill while it loads and under
+   prefers-reduced-motion (js/main.js removes the video node there).
+   ========================================================================== */
+.hero > .page-hero-media { z-index: 0; }
+.hero > .hero-bg { z-index: 1; }
+.hero-inner, .hero-stats, .hero-scroll { z-index: 2; }
+.hero-dim { z-index: 4; }
+
+/* Keep white hero text legible over live footage without a blocking overlay. */
+.hero-copy .eyebrow,
+.hero-title,
+.hero-desc,
+.stat-num,
+.stat-lbl { text-shadow: 0 2px 22px rgba(6,20,52,.5), 0 1px 4px rgba(6,20,52,.55); }
+
+/* ==========================================================================
+   Home hero — single column (floating card removed, item 2) + readability
+   ========================================================================== */
+.hero { max-width: 100%; }
+.hero-inner { grid-template-columns: 1fr; }
+.hero-copy { max-width: 760px; }
+
+/* Dark readability overlay over the home hero video (item 3), matching the
+   shared inner-page pattern — z-1: above the video, below the content. */
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  /* Rebalanced to match the inner-page heroes — dark enough on the left for
+     legible text, fading out through the centre/right so the video shows. */
+  background: linear-gradient(to right,
+    rgba(8,18,38,.74) 0%,
+    rgba(8,18,38,.46) 34%,
+    rgba(8,18,38,.16) 64%,
+    rgba(8,18,38,.04) 100%);
+}
+
+/* Match inner-page hero measure */
+.hero-copy { max-width: 720px; }
+
+/* Item 3 — hero content area sized to match Ideal Index.html's content column
+   (container width + hero-inner padding are already the shared values). */
+.hero-copy { max-width: 680px; }
+
+/* ==========================================================================
+   Homepage hero fixes (index.html only)
+   ========================================================================== */
+
+/* Issue 2 — more breathing room between the hero subtext and the CTA buttons
+   so they no longer sit cramped against the paragraph. */
+.hero-ctas { margin-top: 44px; }
+
+/* Issue 1 — keep the whole hero (content + the 3 stat blocks) within the
+   viewport on shorter laptop screens (1366×768, 1440×900, and 1920×1080 minus
+   browser chrome). The hero is pinned by the curtain-reveal, so when it grows
+   taller than the viewport the stat row falls below the fold and gets covered.
+   Height-based sizing only — content, copy, video and layout order untouched;
+   tall desktops keep their current look. */
+@media (max-height: 1100px) {
+  .hero-inner { padding-block: clamp(40px, 6.5vh, 130px) clamp(20px, 3vh, 90px); }
+  .hero-title { font-size: clamp(2.3rem, 7vh, 5rem); }
+  .hero-ctas { margin-top: clamp(32px, 3.6vh, 44px); }
+  .hero-stats-grid { padding-block: clamp(14px, 2.4vh, 30px); }
+  .hero-scroll { display: none; }
+}

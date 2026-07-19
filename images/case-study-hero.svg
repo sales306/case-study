@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" role="img" aria-label="Case study hero placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A1F4C"/>
+      <stop offset="0.55" stop-color="#0B234F"/>
+      <stop offset="1" stop-color="#061434"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.72" cy="0.28" r="0.6">
+      <stop offset="0" stop-color="#1B9DF0" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#1B9DF0" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+  <g opacity="0.5" stroke="#6FA8F2" stroke-width="2" fill="none">
+    <circle cx="1420" cy="300" r="140"/>
+    <circle cx="1420" cy="300" r="90" stroke-dasharray="6 10"/>
+    <circle cx="1420" cy="300" r="10" fill="#6FA8F2" stroke="none"/>
+  </g>
+  <text x="960" y="545" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="42" font-weight="700" fill="#FFFFFF" fill-opacity="0.85" letter-spacing="2">aCXend — Case Study</text>
+  <text x="960" y="600" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" fill="#AAB8D9" fill-opacity="0.8" letter-spacing="3">HERO IMAGE PLACEHOLDER · REPLACE IN /images/</text>
+</svg>

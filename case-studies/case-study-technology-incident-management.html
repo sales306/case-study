@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Technology Incident Management Transformation — Case Study | aCXend</title>
+<meta name="description" content="How aCXend helped a growing organization replace fragmented incident response with a standardized, governance-driven Incident Management framework—improving P1/P2 resolution performance and reducing the business impact of critical outages." />
+<meta property="og:title" content="Technology Incident Management Transformation — aCXend Case Study" />
+<meta property="og:description" content="Process standardization and governance that turned fragmented incident response into a measurable, continuously improving framework." />
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="/case-studies/case-study-technology-incident-management.html" />
+<link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+<link rel="apple-touch-icon" href="/images/logo.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Shared design system (already in the repo) → then the page-scoped template CSS.
+     Paths are root-absolute so this file works from the /case-studies/ folder on Vercel.
+     MASTER TEMPLATE — copy this file for every new case study and edit only the content. -->
+<link rel="stylesheet" href="/css/tokens.css" />
+<link rel="stylesheet" href="/css/base.css" />
+<link rel="stylesheet" href="/css/components.css" />
+<link rel="stylesheet" href="/css/animations.css" />
+<link rel="stylesheet" href="/css/effects.css" />
+<link rel="stylesheet" href="/css/case-study.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============== NAVIGATION (root-absolute links) ============== -->
+<header class="nav-wrap" data-nav>
+  <div class="container nav">
+    <a href="/index.html" class="brand" aria-label="aCXend — Home">
+      <img src="/images/logo.png" alt="aCXend" class="brand-logo"
+           onerror="this.onerror=null;this.src='/images/logo.svg'" />
+    </a>
+
+    <nav class="nav-menu" id="nav-menu" aria-label="Primary">
+      <div class="nav-item"><a class="nav-link" href="/index.html">Home</a></div>
+      <div class="nav-item"><a class="nav-link" href="/about.html">About Us</a></div>
+
+      <div class="nav-item has-dropdown">
+        <a class="nav-link" href="/services.html">Services
+          <button class="caret" type="button" aria-expanded="false" aria-label="Toggle Services submenu">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </a>
+        <div class="dropdown" role="menu">
+          <a role="menuitem" href="/customer-support.html">Customer Support</a>
+          <a role="menuitem" href="/content-moderation.html">Content Moderation</a>
+          <a role="menuitem" href="/website-development.html">Website Development</a>
+          <a role="menuitem" href="/project-management.html">Project Management</a>
+        </div>
+      </div>
+
+      <div class="nav-item has-dropdown">
+        <a class="nav-link" href="/engagement-models.html">Engagement Models
+          <button class="caret" type="button" aria-expanded="false" aria-label="Toggle Engagement Models submenu">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </a>
+        <div class="dropdown" role="menu">
+          <a role="menuitem" href="/engagement-models.html#staff-augmentation">Staff Augmentation</a>
+          <a role="menuitem" href="/engagement-models.html#managed-services">Managed Services</a>
+          <a role="menuitem" href="/engagement-models.html#hybrid-teams">Hybrid Teams</a>
+        </div>
+      </div>
+
+      <div class="nav-item"><a class="nav-link active" aria-current="page" href="/case-studies.html">Case Studies</a></div>
+      <div class="nav-item"><a class="nav-link" href="/contact.html">Contact Us</a></div>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="/contact.html" class="btn btn-primary btn-nav">Start a Conversation</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<div id="smooth-content">
+<main id="main">
+
+<!-- ============================================================================
+     HERO — image-based. Reuses the .page-hero shell (min-height, white text,
+     curtain-reveal) and swaps the video for a background image.
+     PLACEHOLDER: replace /images/case-study-hero.svg with your own photo
+     (e.g. /images/case-study-hero.jpg) and update the src below.
+     ============================================================================ -->
+<header class="page-hero cs-hero" aria-label="Case study introduction">
+  <div class="page-hero-media" aria-hidden="true">
+    <img class="cs-hero-img" src="/images/case-study-hero.svg" alt="" />
+  </div>
+  <div class="cs-hero-overlay" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="cs-hero-content">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/index.html">Home</a>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a href="/case-studies.html">Case Studies</a>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span aria-current="page">Incident Management</span>
+      </nav>
+      <span class="cs-hero-cat reveal">Technology Operations</span>
+      <h1 class="reveal split-text">Technology Incident Management Transformation through process standardization and governance.</h1>
+      <p class="page-hero-desc cs-lead reveal split-text">We helped a growing organization replace fragmented, inconsistent incident response with a standardized, governance-driven framework—improving resolution performance and reducing the business impact of critical outages.</p>
+    </div>
+  </div>
+
+  <div class="page-hero-dim" aria-hidden="true"></div>
+</header>
+
+<!-- ============================================================================
+     SECTION 1 · EXECUTIVE RESULTS  (top priority — immediately after hero)
+     ============================================================================ -->
+<section class="section" id="results" aria-label="Executive results">
+  <div class="container">
+    <div class="section-head section-head--center reveal" data-stagger>
+      <div>
+        <span class="eyebrow reveal split-text"><span class="cs-eyebrow-num">01</span>Executive Results</span>
+        <h2 class="reveal split-text">Outcomes that <span class="accent">mattered most.</span></h2>
+      </div>
+      <p>A standardized, measurable incident management framework—delivered through process transformation and governance.</p>
+    </div>
+
+    <div class="cs-results reveal" data-stagger>
+      <div class="cs-result reveal"><span class="cs-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span><p>Standardized incident management framework across technology operations</p></div>
+      <div class="cs-result reveal"><span class="cs-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span><p>Improved P1 and P2 incident response and resolution performance</p></div>
+      <div class="cs-result reveal"><span class="cs-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span><p>Reduced productivity losses caused by unplanned technology outages</p></div>
+      <div class="cs-result reveal"><span class="cs-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span><p>Enhanced accountability and ownership during critical incidents</p></div>
+      <div class="cs-result reveal"><span class="cs-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span><p>Greater visibility into outage impact and operational performance</p></div>
+      <div class="cs-result reveal"><span class="cs-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span><p>Governance, quality assurance, and continuous-improvement mechanisms established</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     SECTION 2 · CONTEXT & OBJECTIVE
+     ============================================================================ -->
+<section class="section section--cloud" id="context" aria-label="Context and objective">
+  <div class="container">
+    <div class="section-head section-head--center reveal" data-stagger>
+      <div>
+        <span class="eyebrow reveal split-text"><span class="cs-eyebrow-num">02</span>Context &amp; Objective</span>
+        <h2 class="reveal split-text">Why the transformation <span class="accent">was needed.</span></h2>
+      </div>
+      <p>Technology availability is directly tied to business performance—and incident response had outgrown its informal structure.</p>
+    </div>
+
+    <div class="cs-two reveal" data-stagger>
+      <div class="cs-panel reveal">
+        <span class="cs-tag">The Context</span>
+        <h3>A growing dependence on technology</h3>
+        <p>For modern organizations, technology availability is directly tied to business performance. Outages, application failures, and infrastructure disruptions affect employee productivity, customer experience, and financial outcomes.</p>
+        <p>As the organization grew, incident response existed across multiple teams—but without standardization, consistency, or formal governance. During high-priority incidents, departments followed different methods, creating inconsistent communication and unclear ownership.</p>
+      </div>
+      <div class="cs-panel--dark reveal">
+        <span class="cs-tag">The Objective</span>
+        <h3>A structured, scalable framework</h3>
+        <p>Leadership recognized the need for a formal Incident Management framework—one that could improve response effectiveness, increase accountability, and reduce the business impact of critical disruptions.</p>
+        <p>The organization partnered with aCXend to lead the transformation as a strategic operational initiative—not a documentation exercise—building a sustainable foundation that could scale with the business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     SECTION 3 · KEY CHALLENGES
+     ============================================================================ -->
+<section class="section" id="challenges" aria-label="Key challenges">
+  <div class="container">
+    <div class="section-head section-head--center reveal" data-stagger>
+      <div>
+        <span class="eyebrow reveal split-text"><span class="cs-eyebrow-num">03</span>Key Challenges</span>
+        <h2 class="reveal split-text">The operational risks <span class="accent">we set out to fix.</span></h2>
+      </div>
+      <p>Fragmented incident response was creating measurable operational and financial exposure.</p>
+    </div>
+
+    <div class="cs-challenges reveal" data-stagger>
+      <div class="cs-challenge reveal"><span class="cs-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><p>Prolonged system downtime and outage impact on the business</p></div>
+      <div class="cs-challenge reveal"><span class="cs-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><p>Inconsistent incident response practices across teams</p></div>
+      <div class="cs-challenge reveal"><span class="cs-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><p>Unclear ownership and delayed escalation paths</p></div>
+      <div class="cs-challenge reveal"><span class="cs-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><p>Limited accountability and difficulty measuring performance</p></div>
+      <div class="cs-challenge reveal"><span class="cs-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><p>Lack of standardized documentation and reporting</p></div>
+      <div class="cs-challenge reveal"><span class="cs-dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><p>Reduced visibility into root causes and improvement opportunities</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     SECTION 4 · APPROACH  (most important — structured, numbered subsections)
+     ============================================================================ -->
+<section class="section section--cloud" id="approach" aria-label="Our approach">
+  <div class="container">
+    <div class="section-head section-head--center reveal" data-stagger>
+      <div>
+        <span class="eyebrow reveal split-text"><span class="cs-eyebrow-num">04</span>Our Approach</span>
+        <h2 class="reveal split-text">A strategic operational <span class="accent">transformation.</span></h2>
+      </div>
+      <p>aCXend approached the engagement as an operational transformation—grounded in stakeholder insight, data, and governance—not a documentation exercise.</p>
+    </div>
+
+    <div class="cs-approach reveal" data-stagger>
+
+      <article class="cs-step reveal">
+        <div class="cs-step-num" aria-hidden="true">01</div>
+        <div>
+          <h3>Stakeholder Discovery &amp; Alignment</h3>
+          <p>Focus group discussions and workshops with technology teams, operational leaders, and process owners surfaced current-state realities—and secured organizational buy-in for future adoption.</p>
+          <ul class="cs-bullets">
+            <li>Current-state process mapping</li>
+            <li>Escalation and communication gaps</li>
+            <li>Stakeholder expectations</li>
+            <li>Future-state alignment</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cs-step reveal">
+        <div class="cs-step-num" aria-hidden="true">02</div>
+        <div>
+          <h3>Comprehensive Process Analysis</h3>
+          <p>We assessed the full incident management lifecycle to understand exactly how incidents were handled across the organization and where standardization would deliver the most value.</p>
+          <ul class="cs-bullets">
+            <li>Incident identification &amp; severity classification</li>
+            <li>Escalation and communication protocols</li>
+            <li>Roles, responsibilities &amp; resolution workflows</li>
+            <li>Reporting and governance structures</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="cs-step reveal">
+        <div class="cs-step-num" aria-hidden="true">03</div>
+        <div>
+          <h3>Gap Identification &amp; Risk Assessment</h3>
+          <p>Benchmarking against industry incident-management frameworks, we ran a comprehensive gap analysis to pinpoint process inconsistencies, governance deficiencies, and performance risks—and where fixing them would reduce outage impact.</p>
+        </div>
+      </article>
+
+      <article class="cs-step reveal">
+        <div class="cs-step-num" aria-hidden="true">04</div>
+        <div>
+          <h3>Incident Ticket Auditing &amp; Operational Insights</h3>
+          <p>Historical incident tickets were audited to quantify recurring trends, response patterns, escalation effectiveness, and resolution bottlenecks—so improvements were prioritized by real operational impact.</p>
+        </div>
+      </article>
+
+      <article class="cs-step reveal">
+        <div class="cs-step-num" aria-hidden="true">05</div>
+        <div>
+          <h3>Deep-Dive Analysis Sessions</h3>
+          <p>Collaborative workshops reviewed findings, validated recommendations, and refined future-state processes—ensuring every change was practical, measurable, and aligned with organizational objectives.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     SECTION 5 · DELIVERABLES
+     ============================================================================ -->
+<section class="section" id="deliverables" aria-label="Deliverables">
+  <div class="container">
+    <div class="section-head section-head--center reveal" data-stagger>
+      <div>
+        <span class="eyebrow reveal split-text"><span class="cs-eyebrow-num">05</span>Deliverables</span>
+        <h2 class="reveal split-text">The framework we <span class="accent">put in place.</span></h2>
+      </div>
+      <p>Each output was built to standardize incident handling and sustain performance over time.</p>
+    </div>
+
+    <div class="cs-deliverables reveal" data-stagger>
+
+      <div class="cs-deliverable reveal">
+        <span class="cs-tag">Deliverable 01</span>
+        <h3>One-Page Incident Management Guide</h3>
+        <p>A concise operational reference covering incident classifications, escalation paths, ownership structures, and response expectations for critical events.</p>
+        <div class="cs-enabled"><span>What it enabled</span><p>Fast, consistent decisions under pressure—every stakeholder working from the same playbook.</p></div>
+      </div>
+
+      <div class="cs-deliverable reveal">
+        <span class="cs-tag">Deliverable 02</span>
+        <h3>Incident Management Methods &amp; Procedures</h3>
+        <p>A detailed framework defining standardized processes, governance requirements, responsibilities, communication protocols, escalation workflows, and performance metrics.</p>
+        <div class="cs-enabled"><span>What it enabled</span><p>Repeatable, governed execution across teams, with continuous-improvement mechanisms built in.</p></div>
+      </div>
+
+      <div class="cs-deliverable reveal">
+        <span class="cs-tag">Deliverable 03</span>
+        <h3>Quality Assurance Dashboards &amp; Reporting</h3>
+        <p>Reporting mechanisms surfacing response performance, resolution compliance, SLA achievement, outage impact, escalation effectiveness, and process-adherence trends.</p>
+        <div class="cs-enabled"><span>What it enabled</span><p>Leadership visibility to monitor performance and target the highest-impact improvements.</p></div>
+      </div>
+
+      <div class="cs-deliverable reveal">
+        <span class="cs-tag">Deliverable 04</span>
+        <h3>Governance &amp; Control Framework</h3>
+        <p>30-, 60-, and 90-day review checkpoints, a quality-control program, user-experience surveys, and a structured change-management approach.</p>
+        <div class="cs-enabled"><span>What it enabled</span><p>Sustained adoption, accountability, and a process that evolves with business requirements.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     SECTION 6 · OUTCOMES
+     ============================================================================ -->
+<section class="section section--cloud" id="outcomes" aria-label="Outcomes">
+  <div class="container">
+    <div class="section-head section-head--center reveal" data-stagger>
+      <div>
+        <span class="eyebrow reveal split-text"><span class="cs-eyebrow-num">06</span>Outcomes</span>
+        <h2 class="reveal split-text">Measurable business <span class="accent">impact.</span></h2>
+      </div>
+      <p>The organization moved from fragmented incident response to a standardized, continuously improving framework.</p>
+    </div>
+
+    <div class="cs-impact reveal" data-stagger>
+      <div class="cs-impact-card reveal"><span class="cs-impact-word">Improved</span><p>P1 &amp; P2 incident resolution SLA compliance</p></div>
+      <div class="cs-impact-card reveal"><span class="cs-impact-word">Faster</span><p>Outage response times across technology departments</p></div>
+      <div class="cs-impact-card reveal"><span class="cs-impact-word">Reduced</span><p>Productivity losses and financial impact from disruptions</p></div>
+    </div>
+
+    <ul class="cs-outcomes reveal" data-stagger>
+      <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Enhanced accountability and ownership during critical incidents</li>
+      <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Greater consistency in incident response execution</li>
+      <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Improved visibility into performance and incident trends</li>
+      <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Stronger stakeholder alignment and governance</li>
+      <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>A sustainable framework for continuous process improvement</li>
+      <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Increased organizational resilience during technology outages</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================================
+     SECTION 7 · BEYOND IMPLEMENTATION
+     ============================================================================ -->
+<section class="section" id="beyond" aria-label="Beyond implementation">
+  <div class="container">
+    <div class="cs-band reveal" data-stagger>
+      <span class="eyebrow reveal split-text">Beyond Implementation</span>
+      <h2 class="reveal split-text">A more resilient organization, built to scale.</h2>
+      <p class="reveal">The engagement did more than fix a process. It shifted the organization from a fragmented incident response model to a standardized, measurable, and continuously improving framework—strengthening its ability to manage disruption and protect the business.</p>
+
+      <div class="cs-band-grid reveal" data-stagger>
+        <div class="cs-band-item reveal">
+          <h4>Long-term transformation</h4>
+          <p>Reduced operational risk and improved outage-management performance as a permanent capability, not a one-time fix.</p>
+        </div>
+        <div class="cs-band-item reveal">
+          <h4>Operational modernization</h4>
+          <p>Clear ownership, governance, and quality assurance replaced ad-hoc response—raising the standard of technology operations.</p>
+        </div>
+        <div class="cs-band-item reveal">
+          <h4>Future scalability</h4>
+          <p>30/60/90-day reviews, QA, and change management let the framework evolve with the business and its technology footprint.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================================
+     FINAL CTA  (reused component)
+     ============================================================================ -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="cta-banner reveal" data-stagger>
+      <div class="cta-video-wrap" aria-hidden="true">
+        <video class="cta-video" autoplay muted loop playsinline preload="auto">
+          <source src="/videos/reeded.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="cta-video-overlay" aria-hidden="true"></div>
+      <div class="cta-glow" aria-hidden="true"></div>
+
+      <div class="cta-content">
+        <span class="eyebrow eyebrow--sky reveal split-text">Partner with us</span>
+        <h2 class="reveal split-text">Facing a similar challenge?</h2>
+        <p>Tell us where the gaps are in your operations today, and we'll walk through how a structured, governance-driven approach could help—no pressure, just a conversation to see if there's a good fit.</p>
+        <div class="cta-actions">
+          <a href="/contact.html" class="btn btn-light btn-lg">Start a Conversation
+            <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="/case-studies.html" class="btn btn-ghost btn-lg">Back to Case Studies</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</div><!-- /#smooth-content -->
+
+<!-- ============== FOOTER (root-absolute links) ============== -->
+<footer class="footer footer-curtain" id="site-footer">
+  <div class="container footer-inner">
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/index.html" aria-label="aCXend — Home">
+          <img src="/images/logo-white2.png" alt="aCXend" width="79" height="54"
+               onerror="this.outerHTML='&lt;span class=&quot;brand-word brand-word--light&quot;&gt;a&lt;b&gt;CX&lt;/b&gt;end&lt;/span&gt;'" />
+        </a>
+        <address class="footer-address">
+          <a href="https://maps.app.goo.gl/VBjbcP57tKT8KL2XA" target="_blank" rel="noopener noreferrer">Marigold Street, Cagayan de Oro City, Philippines</a>
+          <a href="mailto:sales@acxend.com">sales@acxend.com</a>
+        </address>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <div class="footer-cols">
+          <ul class="footer-col-primary">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/engagement-models.html">Engagement Models</a></li>
+            <li><a href="/case-studies.html">Case Studies</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+          <ul class="footer-col-services">
+            <li><h4>Services</h4></li>
+            <li><a href="/customer-support.html">Customer Support</a></li>
+            <li><a href="/content-moderation.html">Content Moderation</a></li>
+            <li><a href="/website-development.html">Website Development</a></li>
+            <li><a href="/project-management.html">Project Management</a></li>
+          </ul>
+          <ul class="footer-col-engagement">
+            <li><h4>Engagement Models</h4></li>
+            <li><a href="/engagement-models.html#staff-augmentation">Staff Augmentation</a></li>
+            <li><a href="/engagement-models.html#managed-services">Managed Services</a></li>
+            <li><a href="/engagement-models.html#hybrid-teams">Hybrid Teams</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bar">
+      <span class="footer-follow-label">Follow Us</span>
+      <ul class="footer-social" aria-label="Social media">
+        <li><a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V21h3.4z"/></svg>
+        </a></li>
+        <li><a href="#" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3l-6.6 7.6L22 21h-6.1l-4.8-6.2L5.6 21h-3l7.1-8.1L2.3 3h6.3l4.3 5.7L17.8 3zm-1.1 16.2h1.7L7.7 4.7H5.9l10.8 14.5z"/></svg>
+        </a></li>
+        <li><a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8zm0-1.8a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.2a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0zM12 4.7c-2.4 0-2.7 0-3.6.1-.9 0-1.4.2-1.7.3-.4.2-.7.4-1 .7-.3.3-.5.6-.7 1-.1.3-.3.8-.3 1.7-.1.9-.1 1.2-.1 3.5s0 2.6.1 3.5c0 .9.2 1.4.3 1.7.2.4.4.7.7 1 .3.3.6.5 1 .7.3.1.8.3 1.7.3.9.1 1.2.1 3.6.1s2.7 0 3.6-.1c.9 0 1.4-.2 1.7-.3.4-.2.7-.4 1-.7.3-.3.5-.6.7-1 .1-.3.3-.8.3-1.7.1-.9.1-1.2.1-3.5s0-2.6-.1-3.5c0-.9-.2-1.4-.3-1.7-.2-.4-.4-.7-.7-1-.3-.3-.6-.5-1-.7-.3-.1-.8-.3-1.7-.3-.9-.1-1.2-.1-3.6-.1zM12 3c2.4 0 2.7 0 3.7.1 1 0 1.6.2 2.2.4.6.2 1.1.6 1.6 1.1.5.5.8 1 1.1 1.6.2.6.4 1.2.4 2.2.1 1 .1 1.3.1 3.6s0 2.6-.1 3.6c0 1-.2 1.6-.4 2.2-.2.6-.6 1.1-1.1 1.6-.5.5-1 .8-1.6 1.1-.6.2-1.2.4-2.2.4-1 .1-1.3.1-3.7.1s-2.7 0-3.7-.1c-1 0-1.6-.2-2.2-.4-.6-.2-1.1-.6-1.6-1.1-.5-.5-.8-1-1.1-1.6-.2-.6-.4-1.2-.4-2.2C3 14.6 3 14.3 3 12s0-2.6.1-3.6c0-1 .2-1.6.4-2.2.2-.6.6-1.1 1.1-1.6.5-.5 1-.8 1.6-1.1.6-.2 1.2-.4 2.2-.4C9.3 3 9.6 3 12 3z"/></svg>
+        </a></li>
+      </ul>
+      <p class="footer-hours">24/7 Operations &middot; 365 Days a Year &middot; Always Ready to Assist</p>
+    </div>
+
+    <div class="footer-legal">
+      <span>&copy; 2026 aCXend. All rights reserved.</span>
+      <ul>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms-and-conditions.html">Terms and Conditions</a></li>
+        <li><a href="/end-user-license-agreement.html">End-User License Agreement</a></li>
+        <li><a href="/copyrights.html">Copyrights</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+<div id="smooth-spacer"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
